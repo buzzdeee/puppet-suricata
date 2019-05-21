@@ -20,7 +20,7 @@ class suricata::config {
   file { [$::suricata::config_dir, "${::suricata::config_dir}/rules", "${::suricata::config_dir}/lua-output", $::suricata::log_dir]:
     ensure  => directory,
     owner   => $::suricata::user,
-    group   => 'root',
+    group   => '0',
     mode    => '0755',
     require => $usr_require,
     before  => File["${::suricata::config_dir}/${::suricata::config_name}"],
@@ -29,7 +29,7 @@ class suricata::config {
   file { "${::suricata::config_dir}/${::suricata::config_name}":
     ensure  => present,
     owner   => $::suricata::user,
-    group   => 'root',
+    group   => '0',
     mode    => '0600',
     content => "# This file is managed by Puppet. DO NOT EDIT.\n\n${::suricata::_main_config.to_yaml}",
     notify  => Service[$::suricata::service_name],
@@ -39,7 +39,7 @@ class suricata::config {
   file { "${::suricata::config_dir}/classification.config":
     ensure  => file,
     owner   => $::suricata::user,
-    group   => 'root',
+    group   => '0',
     mode    => '0600',
     content => epp('suricata/classification.config.epp'),
     require => $usr_require,
@@ -48,7 +48,7 @@ class suricata::config {
   file { "${::suricata::config_dir}/reference.config":
     ensure  => file,
     owner   => $::suricata::user,
-    group   => 'root',
+    group   => '0',
     mode    => '0600',
     content => epp('suricata/reference.config.epp'),
     require => $usr_require,
@@ -57,7 +57,7 @@ class suricata::config {
   file { "${::suricata::config_dir}/threshold.config":
     ensure  => file,
     owner   => $::suricata::user,
-    group   => 'root',
+    group   => '0',
     mode    => '0600',
     content => epp('suricata/threshold.config.epp'),
     require => $usr_require,

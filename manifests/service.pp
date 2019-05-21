@@ -13,7 +13,7 @@ class suricata::service {
       file { "${systemd_path}/suricata.service":
         ensure  => file,
         owner   => 'root',
-        group   => 'root',
+        group   => '0',
         mode    => '0644',
         content => epp('suricata/suricata.service.epp'),
       }
