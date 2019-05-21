@@ -1,5 +1,6 @@
 ---
 suricata::service_provider: "openbsd"
+suricata::service_flags: '-c /etc/suricata/suricata.yaml -i em0'
 suricata::bin_path: "/usr/local/bin/suricata"
 suricata::user_shell: "/sbin/nologin"
 

@@ -36,6 +36,10 @@
 #   Which service provider suricatas service will use
 #   Default depends on os
 #
+# [*service_flags*]
+#   OpenBSD's way to specify parameters for the service
+#   that are given to the daemon on startup
+#
 # [*manage_user*]
 #   Choose wheter this module will manage the user
 #   Defaults to true
@@ -95,6 +99,7 @@ class suricata (
   String $service_name,
   Boolean $service_enable,
   String $service_provider,
+  String $service_flags,
   Boolean $manage_user,
   String $user,
   String $group,

@@ -25,6 +25,9 @@ class suricata::service {
         notify      => Service[$::suricata::service_name],
       }
     }
+    'openbsd': {
+      # left empty
+    }
     default: {
       $service_require = undef
 
@@ -36,6 +39,7 @@ class suricata::service {
     ensure   => $::suricata::service_ensure,
     enable   => $::suricata::service_enable,
     provider => $::suricata::service_provider,
+    flags    => $::suricata::service_flags,
     require  => $service_require,
   }
 
