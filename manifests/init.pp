@@ -121,7 +121,7 @@ class suricata (
 ) {
 
   if $basic_configuration_enabled {
-    $_main_config           = lookup('suricata::basic_main_config', Hash) + $main_config
+    $_main_config           = deep_merge(lookup('suricata::basic_main_config', Hash), $main_config)
     $_classification_config = lookup('suricata::basic_classification_config', Array) + $classification_config
     $_reference_config      = lookup('suricata::basic_reference_config', Array) + $reference_config
     $_threshold_config      = $threshold_config
