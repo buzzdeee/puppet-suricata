@@ -40,6 +40,7 @@ class suricata::service {
     enable   => $::suricata::service_enable,
     provider => $::suricata::service_provider,
     flags    => $::suricata::service_flags,
+    runas    => $::suricata::service_runas,
     require  => $service_require,
   }
 

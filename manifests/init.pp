@@ -100,6 +100,7 @@ class suricata (
   Boolean $service_enable,
   String $service_provider,
   String $service_flags,
+  String $service_runas,
   Boolean $manage_user,
   String $user,
   String $group,

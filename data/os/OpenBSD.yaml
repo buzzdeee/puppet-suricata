@@ -4,6 +4,8 @@ suricata::service_flags: '-c /etc/suricata/suricata.yaml -i em0'
 suricata::bin_path: "/usr/local/bin/suricata"
 suricata::user_shell: "/sbin/nologin"
 
+suricata::service_runas: "_suricata"
+
 suricata::manage_user: false
 suricata::user: "_suricata"
 suricata::group: "_suricata"
