@@ -16,9 +16,23 @@ class suricata::install {
           $pkg_require = Apt::Ppa[$::suricata::ppa_source]
 
           include ::apt
-          apt::ppa { $::suricata::ppa_source: 
+          apt::ppa { $::suricata::ppa_source:
             package_manage => true,
           }
+        }
+      } else { $pkg_require = undef }
+    }
+    'OpenBSD': {
+      if $::suricata::use_dumpcap {
+        $pkg_require = Package['tshark']
+
+        package { 'tshark':
+          ensure => installed,
+        }
+        user { $::suricata::user:
+          groups     => [ '_wireshark', ],
+          membership => 'minimum',
+          require    => Package[$::suricata::package_name],
         }
       } else { $pkg_require = undef }
     }

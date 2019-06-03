@@ -15,6 +15,7 @@ suricata::user: "suricata"
 suricata::group: "suricata"
 suricata::basic_configuration_enabled: true
 suricata::configure_epel: false
+suricata::use_dumpcap: false
 suricata::ppa_source: undef
 suricata::basic_classification_config:
   - "not-suspicious,Not Suspicious Traffic,3"

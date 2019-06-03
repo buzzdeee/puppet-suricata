@@ -107,6 +107,7 @@ class suricata (
   Stdlib::Absolutepath $bin_path,
   Boolean $basic_configuration_enabled,
   Boolean $configure_epel,
+  Boolean $use_dumpcap,
   String $ppa_source,
   Variant[String, Boolean] $interfaces  = split($::interfaces, ',')[0],
   Optional[String] $cmd_options = undef,
