@@ -9,7 +9,6 @@ suricata::service_ensure: "running"
 suricata::service_enable: true
 suricata::service_provider: "systemd"
 suricata::service_flags: undef
-suricata::service_runas: undef
 
 suricata::manage_user: true
 suricata::user: "suricata"
